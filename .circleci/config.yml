@@ -47,9 +47,9 @@ jobs:
     << : *defaults
     steps:
       - run: return 1
-
       - run:
-          name: Faild Tests
+          name: on error
+          command: echo "Hello Error!"
           when: on_fail
 
 
