@@ -43,6 +43,15 @@ jobs:
     steps:
       - print_pipeline_id
 
+  failures:
+    << : *defaults
+    steps:
+      - run: return 1
+
+      - run:
+          name: Faild Tests
+          when: on_fail
+
 
 
 workflows:
@@ -54,3 +63,4 @@ workflows:
       - print_output_file:
           requires: [save_hello_world_output]
       - print_using_command
+      - failures
